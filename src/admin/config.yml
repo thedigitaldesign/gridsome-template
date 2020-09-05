@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: thedigitaldesign/gridsome-ecommerce
+  repo: thedigitaldesign/gridsome-template
 
 media_folder: 'static/uploads'
 public_folder: '/uploads'

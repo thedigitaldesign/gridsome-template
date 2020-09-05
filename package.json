@@ -1,5 +1,5 @@
 {
-  "name": "gridsome-ecommerce",
+  "name": "gridsome-template",
   "private": true,
   "scripts": {
     "build": "gridsome build",
@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.6.1",
-    "gridsome": "^0.7.19",
+    "@gridsome/transformer-remark": "^0.6.2",
+    "gridsome": "^0.7.20",
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-tailwindcss": "^3.0.1",
-    "netlify-cms": "^2.10.55",
-    "tailwindcss": "^1.6.2"
+    "netlify-cms": "^2.10.56",
+    "tailwindcss": "^1.8.2"
   }
 }
