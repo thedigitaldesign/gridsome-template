@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "gridsome develop",
+    "build:tailwind": "tailwind build src/assets/css/_tailwind.css -o src/assets/css/tailwind.css",
+    "develop": "gridsome develop --port 8090",
     "explore": "gridsome explore"
   },
   "dependencies": {
@@ -13,6 +14,11 @@
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-tailwindcss": "^3.0.1",
     "netlify-cms": "^2.10.56",
-    "tailwindcss": "^1.8.2"
+    "tailwindcss": "^1.8.3"
+  },
+  "devDependencies": {
+    "gridsome-plugin-typescript": "^0.4.0",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2"
   }
 }
