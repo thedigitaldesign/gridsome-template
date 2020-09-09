@@ -8,38 +8,38 @@ publish_mode: editorial_workflow
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "blog" # The path to the folder where the documents are stored
+    label: "Blog Post" # Used in the UI
+    folder: "content/blog/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       #- {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", required: false}
       #- {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"
-    folder: "pages"
+    folder: "content/pages"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "home"
     label: "Home"
-    folder: "home"
+    folder: "content/home"
     create: true
     slug: "home"
     fields:
-      - {label: "Hero Image", name: "hero", widget: "image"}
-      - {label: "Hero Text", name: "hero", widget: "code"}
-      - {label: "Section 1", name: "section1", widget: "code"}
-      - {label: "Section 2", name: "section2", widget: "code"}
-      - {label: "Section 3", name: "section3", widget: "code"}
-      - {label: "Section 4", name: "section4", widget: "code"}
-      - {label: "Section 5", name: "section5", widget: "code"}
-      - {label: "Section 6", name: "section6", widget: "code"}
+      - {label: "Hero Image", name: "hero", widget: "image", required: false}
+      - {label: "Hero Text", name: "heroText", widget: "code", required: false}
+      - {label: "Section 1", name: "section1", widget: "code", required: false}
+      - {label: "Section 2", name: "section2", widget: "code", required: false}
+      - {label: "Section 3", name: "section3", widget: "code", required: false}
+      - {label: "Section 4", name: "section4", widget: "code", required: false}
+      - {label: "Section 5", name: "section5", widget: "code", required: false}
+      - {label: "Section 6", name: "section6", widget: "code", required: false}
     
