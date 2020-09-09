@@ -14,7 +14,8 @@
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-tailwindcss": "^3.0.1",
     "netlify-cms": "^2.10.56",
-    "tailwindcss": "^1.8.3"
+    "tailwindcss": "^1.8.3",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "gridsome-plugin-typescript": "^0.4.0",
