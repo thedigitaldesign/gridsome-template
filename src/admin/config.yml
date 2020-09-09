@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: thedigitaldesign/gridsome-template
+  repo: nihmble/gridsome-template-posts
 
 media_folder: 'static/uploads'
 public_folder: '/uploads'
