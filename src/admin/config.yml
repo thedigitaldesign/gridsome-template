@@ -1,45 +1,62 @@
 backend:
   name: github
-  repo: nihmble/gridsome-template-posts
+  # repo: nihmble/gridsome-template-posts
+
+# when using the default proxy server port
+# npx netlify-cms-proxy-server
+local_backend: true
 
 media_folder: 'static/uploads'
 public_folder: '/uploads'
 publish_mode: editorial_workflow
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog Post" # Used in the UI
-    folder: "content/blog/posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      #- {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image", required: false}
-      #- {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - name: "pages"
-    label: "Pages"
-    folder: "content/pages"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Hero Image", name: "hero", widget: "image", required: false}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
   - name: "home"
     label: "Home"
-    folder: "content/home"
+    folder: "_content/home"
     create: true
-    slug: "home"
+    slug: "index"
     fields:
-      - {label: "Hero Image", name: "hero", widget: "image", required: false}
-      - {label: "Hero Text", name: "heroText", widget: "code", required: false}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Hero Text", name: "heroText", widget: "code"}
       - {label: "Section 1", name: "section1", widget: "code", required: false}
       - {label: "Section 2", name: "section2", widget: "code", required: false}
       - {label: "Section 3", name: "section3", widget: "code", required: false}
       - {label: "Section 4", name: "section4", widget: "code", required: false}
       - {label: "Section 5", name: "section5", widget: "code", required: false}
       - {label: "Section 6", name: "section6", widget: "code", required: false}
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "_content/blog/posts" # The path to the folder where the documents are stored
+    path: "{{year}}/{{month}}/{{slug}}"
+    create: true # Allow users to create new documents in this collection
+    # slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      # - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string", required: false}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", required: false}
+      # - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    folder: "_content/pages"
+    path: "{{parent}}/{{slug}}"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Parent Page", name: "parent", widget: "string", required: false, hint: "By specifying a Parent Page this page will become a sub page. e.g. service/your-page"}
+      - {label: "Slug", name: "slug", widget: "string", required: false, hint: "Title will be used if Slug is left empty"}
+      - {label: "Hero Image", name: "hero", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  # - name: "subpages"
+  #   label: "Sub Pages"
+  #   folder: "_content/pages/"
+  #   create: true
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Slug", name: "slug", widget: "string"}
+  #     - {label: "Hero Image", name: "hero", widget: "image", required: false}
+  #     - {label: "Body", name: "body", widget: "markdown"}
     

@@ -18,24 +18,40 @@ module.exports = {
   },
 
   plugins: [
-    {
-      use: "@gridsome/source-filesystem",
-      options: {
-        path: "blog/**/*.md",
-        typeName: "Blog",
-        remark: {
-          plugins: [
-            // ...local plugins
-          ],
-        },
-      },
-    },
+    /**
+     * Pages and Posts
+     */
     {
       use: `gridsome-plugin-netlify-cms`,
       options: {
         publicPath: `/admin`,
       },
     },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "content/blog/**/*.md",
+        typeName: "BlogPost"
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "content/pages/*.md",
+        typeName: "Pages"
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "content/pages/**/*.md",
+        typeName: "SubPages"
+      },
+    },
+
+    /**
+     * Plugins
+     */
     {
       use: "gridsome-plugin-tailwindcss",
       /**
@@ -54,4 +70,11 @@ module.exports = {
       use: 'gridsome-plugin-typescript',
     }
   ],
+
+  templates: {
+    // BlogPost: '/blog/:year/:month/:day/:slug'
+    BlogPost: '/blog/post/:slug',
+    Pages: '/:slug',
+    SubPages: '/:parent/:slug'
+  }
 };
