@@ -30,21 +30,28 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "content/blog/**/*.md",
+        path: "_content/home/index.md",
+        typeName: "Home"
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "_content/blog/**/*.md",
         typeName: "BlogPost"
       },
     },
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "content/pages/*.md",
+        path: "_content/pages/*.md",
         typeName: "Pages"
       },
     },
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "content/pages/**/*.md",
+        path: "_content/pages/**/*.md",
         typeName: "SubPages"
       },
     },
@@ -73,8 +80,10 @@ module.exports = {
 
   templates: {
     // BlogPost: '/blog/:year/:month/:day/:slug'
-    BlogPost: '/blog/post/:slug',
-    Pages: '/:slug',
-    SubPages: '/:parent/:slug'
+    // BlogPost: '/blog/post/:slug',
+    Home: '/',
+    BlogPost: '/blog/post/:title',
+    Pages: '/:title',
+    SubPages: '/:parent/:title'
   }
 };

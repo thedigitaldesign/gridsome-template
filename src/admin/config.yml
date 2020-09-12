@@ -17,6 +17,7 @@ collections:
     create: true
     slug: "index"
     fields:
+      - {label: "Homepage Title", name: "title", widget: "string", default: "index"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Hero Text", name: "heroText", widget: "code"}
       - {label: "Section 1", name: "section1", widget: "code", required: false}
