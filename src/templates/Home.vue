@@ -1,6 +1,6 @@
 <page-query>
   query Home($id: ID!) {
-    home: home(id: $id) {
+    data: home(id: $id) {
       heroText { code }
     }
   }
@@ -8,7 +8,7 @@
 
 <template>
   <Layout>
-    {{ $page.home.heroText.code }}
+    {{ $page.data.heroText.code }}
   </Layout>
 </template>
 

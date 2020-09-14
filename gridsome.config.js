@@ -37,8 +37,8 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "_content/blog/**/*.md",
-        typeName: "BlogPost"
+        path: "_content/blog/posts/**/**/*.md",
+        typeName: "BlogPosts"
       },
     },
     {
@@ -79,10 +79,8 @@ module.exports = {
   ],
 
   templates: {
-    // BlogPost: '/blog/:year/:month/:day/:slug'
-    // BlogPost: '/blog/post/:slug',
     Home: '/',
-    BlogPost: '/blog/post/:title',
+    BlogPosts: '/blog/post/:title',
     Pages: '/:title',
     SubPages: '/:parent/:title'
   }

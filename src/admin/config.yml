@@ -51,13 +51,4 @@ collections:
       - {label: "Slug", name: "slug", widget: "string", required: false, hint: "Title will be used if Slug is left empty"}
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
-  # - name: "subpages"
-  #   label: "Sub Pages"
-  #   folder: "_content/pages/"
-  #   create: true
-  #   fields:
-  #     - {label: "Title", name: "title", widget: "string"}
-  #     - {label: "Slug", name: "slug", widget: "string"}
-  #     - {label: "Hero Image", name: "hero", widget: "image", required: false}
-  #     - {label: "Body", name: "body", widget: "markdown"}
     
