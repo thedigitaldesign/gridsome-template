@@ -26,6 +26,15 @@ collections:
       - {label: "Section 4", name: "section4", widget: "code", required: false}
       - {label: "Section 5", name: "section5", widget: "code", required: false}
       - {label: "Section 6", name: "section6", widget: "code", required: false}
+  - name: "blog"
+    label: "Blog"
+    folder: "_content/blog"
+    create: true
+    slug: "index"
+    fields:
+      - {label: "Title", name: "title", widget: "string", default: "Blog"}
+      - {label: "Hero Image", name: "hero", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
     folder: "_content/blog/posts" # The path to the folder where the documents are stored

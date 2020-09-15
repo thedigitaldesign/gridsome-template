@@ -1,5 +1,5 @@
 <page-query>
-  query Post($id: ID!) {
+  query post($id: ID!) {
     data: post(id: $id) {
       title
     }
