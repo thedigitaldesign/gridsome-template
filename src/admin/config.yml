@@ -1,21 +1,63 @@
 backend:
   name: github
-  repo: thedigitaldesign/gridsome-ecommerce
+  # repo: nihmble/gridsome-template-posts
+
+# when using the default proxy server port
+# npx netlify-cms-proxy-server
+local_backend: true
 
 media_folder: 'static/uploads'
 public_folder: '/uploads'
 publish_mode: editorial_workflow
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "blog" # The path to the folder where the documents are stored
+  - name: "home"
+    label: "Home"
+    folder: "_content/home"
+    create: true
+    slug: "index"
+    fields:
+      - {label: "Homepage Title", name: "title", widget: "string", default: "index"}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Hero Text", name: "heroText", widget: "code"}
+      - {label: "Section 1", name: "section1", widget: "code", required: false}
+      - {label: "Section 2", name: "section2", widget: "code", required: false}
+      - {label: "Section 3", name: "section3", widget: "code", required: false}
+      - {label: "Section 4", name: "section4", widget: "code", required: false}
+      - {label: "Section 5", name: "section5", widget: "code", required: false}
+      - {label: "Section 6", name: "section6", widget: "code", required: false}
+  - name: "blog"
+    label: "Blog"
+    folder: "_content/blog"
+    create: true
+    slug: "index"
+    fields:
+      - {label: "Title", name: "title", widget: "string", default: "Blog"}
+      - {label: "Hero Image", name: "hero", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "_content/blog/posts" # The path to the folder where the documents are stored
+    path: "{{year}}/{{month}}/{{slug}}"
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    # slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      #- {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      # - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image"}
-      #- {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image", required: false}
+      # - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    folder: "_content/pages"
+    path: "{{parent}}/{{slug}}"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Parent Page", name: "parent", widget: "string", required: false, hint: "By specifying a Parent Page this page will become a sub page. e.g. service/your-page"}
+      - {label: "Slug", name: "slug", widget: "string", required: false, hint: "Title will be used if Slug is left empty"}
+      - {label: "Hero Image", name: "hero", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+    
